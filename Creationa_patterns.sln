@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sigleton", "Sigleton\Siglet
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Factory", "Factory\Factory.vcxproj", "{EC601DD7-3ECA-4B5E-9141-7A9A3E98B72B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Factory2", "Factory2\Factory2.vcxproj", "{875A57FC-781E-4DE5-A001-517A8F6BF703}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{EC601DD7-3ECA-4B5E-9141-7A9A3E98B72B}.Release|x64.Build.0 = Release|x64
 		{EC601DD7-3ECA-4B5E-9141-7A9A3E98B72B}.Release|x86.ActiveCfg = Release|Win32
 		{EC601DD7-3ECA-4B5E-9141-7A9A3E98B72B}.Release|x86.Build.0 = Release|Win32
+		{875A57FC-781E-4DE5-A001-517A8F6BF703}.Debug|x64.ActiveCfg = Debug|x64
+		{875A57FC-781E-4DE5-A001-517A8F6BF703}.Debug|x64.Build.0 = Debug|x64
+		{875A57FC-781E-4DE5-A001-517A8F6BF703}.Debug|x86.ActiveCfg = Debug|Win32
+		{875A57FC-781E-4DE5-A001-517A8F6BF703}.Debug|x86.Build.0 = Debug|Win32
+		{875A57FC-781E-4DE5-A001-517A8F6BF703}.Release|x64.ActiveCfg = Release|x64
+		{875A57FC-781E-4DE5-A001-517A8F6BF703}.Release|x64.Build.0 = Release|x64
+		{875A57FC-781E-4DE5-A001-517A8F6BF703}.Release|x86.ActiveCfg = Release|Win32
+		{875A57FC-781E-4DE5-A001-517A8F6BF703}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

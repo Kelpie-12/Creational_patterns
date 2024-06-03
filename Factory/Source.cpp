@@ -67,8 +67,9 @@ public:
 	void info()
 	{
 		cout << "Square Rectangle " << get_square() << endl;
+		cout << "height = " << height << " widgh = " << widgh << endl;
 	}
-	
+
 protected:
 	float widgh;
 	float height;
@@ -83,13 +84,12 @@ class Cube1 : public Rectangle1
 public:
 	Cube1()
 	{
-		this->height = this->widgh = rand() % 100;
+		this->side=this->height = this->widgh = rand() % 100;
 	}
-	Cube1(float widgh, float height, Vector2 position, Color color)
+	Cube1(float side, Vector2 position, Color color)
 	{
 		this->color = color;
-		this->height = height;
-		this->widgh = widgh;
+		this->height = this->widgh = side;
 		this->position = position;
 	}
 	void set_position(Vector2 position) override
@@ -103,12 +103,14 @@ public:
 	void info()
 	{
 		cout << "Square cube " << get_square() << endl;
+		cout << "Side = " << side << endl;
 	}
 
 private:
+	float side;
 	double get_square() override
 	{
-		return  (position.x - position.x + widgh) * (position.y + height - position.y);
+		return  (position.x - position.x + side) * (position.y + side - position.y);
 	}
 };
 
@@ -130,12 +132,13 @@ public:
 	void info()
 	{
 		cout << "Square circle " << get_square() << endl;
+		cout << "Radius = " << this->radius << endl;
 	}
 private:
 	float radius;
 	double get_square() override
 	{
-		return 3.14* radius* radius;
+		return 3.14 * radius * radius;
 	}
 };
 
@@ -183,14 +186,14 @@ void main()
 	const int height = 800;
 	setlocale(LC_ALL, "");
 	InitWindow(widgh, height, "HomeWork");
-	SetTargetFPS(60);	
+	SetTargetFPS(60);
 	vector<Figura*> figur{ new Rectangle1,new Circle1,new Cube1 };
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
 
 		figur[0]->Draw();
-		hand_imput(figur);	
+		hand_imput(figur);
 		ClearBackground(BLACK);
 		EndDrawing();
 	}
@@ -223,6 +226,6 @@ void hand_imput(vector <Figura*>& figur)
 			figur.push_back(new Treuglnic);
 			figur[0]->info();
 		}
-
 	}
+
 }
