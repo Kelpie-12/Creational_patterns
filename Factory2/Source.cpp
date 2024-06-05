@@ -17,6 +17,11 @@ void main()
 	MyTriangle::Triangle a;
 	MyCube::Cube cube(50,150,200,9,MyGeometry::GREEN);
 	MyCirle::Circle c(25, 150, 200, 9, MyGeometry::YELLOW);
-	c.info();	
+	rect.info();
+	a.info();
+	cube.info();
+	c.info();
+	
+	
 	
 }
