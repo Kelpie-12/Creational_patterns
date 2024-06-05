@@ -31,11 +31,7 @@ namespace MyGeometry
 		unsigned int y;
 		unsigned int line_width;
 		MyGeometry::Color color;
-	public:
-		virtual double get_area()const = 0;
-		virtual double get_perimeter()const = 0;
-		virtual void draw()const = 0;
-
+	public:		
 		unsigned int get_x()const;	
 		unsigned int get_y()const;		
 		unsigned int get_line_width()const;
@@ -53,7 +49,9 @@ namespace MyGeometry
 
 		//methods
 		virtual void info()const;
-		
+		virtual double get_area()const = 0;
+		virtual double get_perimeter()const = 0;
+		virtual void draw()const = 0;
 	};
 
 }
