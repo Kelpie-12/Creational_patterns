@@ -15,11 +15,11 @@ void main()
 	srand(time(NULL));
 	MyRectangle::Rectangle rect(100, 50, 150, 150, 8, MyGeometry::RED);
 	MyTriangle::Triangle a;
-	MyCube::Cube cube(50,150,200,9,MyGeometry::GREEN);
+	MyCube::Square square(50,150,200,9,MyGeometry::GREEN);
 	MyCirle::Circle c(25, 150, 200, 9, MyGeometry::YELLOW);
 	rect.info();
 	a.info();
-	cube.info();
+	square.info();
 	c.info();
 	
 	
