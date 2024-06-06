@@ -1,8 +1,8 @@
 #pragma once
 #include "Rectangle.h"
-namespace MyCube {
+namespace MyGeometry {
 	class Square :
-		public MyRectangle::Rectangle
+		public MyGeometry::Rectangle
 	{
 	private:
 		double side;
@@ -10,7 +10,7 @@ namespace MyCube {
 		Square();
 		double get_side()const;
 		void set_side(double side);	
-		Square(double side, unsigned int x, unsigned int y, unsigned int live_width, MyGeometry::Color color);
+		Square(double side, unsigned int x, unsigned int y, unsigned int live_width, Color color);
 
 		double get_area()const override;
 		double get_perimeter()const override;

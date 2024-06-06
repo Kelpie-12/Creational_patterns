@@ -2,13 +2,13 @@
 #include "Shape.h"
 #include <wingdi.h>
 
-namespace MyCirle {
+namespace MyGeometry {
 	class Circle :
 		public MyGeometry::Shape
 	{
 	public:
 		Circle();
-		Circle(double radius, unsigned int x, unsigned int y, unsigned int live_width, MyGeometry::Color color);
+		Circle(double radius, unsigned int x, unsigned int y, unsigned int live_width, Color color);
 
 		void set_position(unsigned int x, unsigned int y);
 		void set_radius(double radius);
@@ -21,7 +21,7 @@ namespace MyCirle {
 
 	private:
 		double radius;		
-		MyGeometry::Vector2 p2;
+		Vector2 p2;
 	};
 
 }

@@ -1,36 +1,36 @@
 #include "Cube.h"
 
-MyCube::Square::Square()
+MyGeometry::Square::Square()
 {
 	this->side = rand() % 300;
 }
 
-double MyCube::Square::get_side() const
+double MyGeometry::Square::get_side() const
 {
 	return this->side;
 }
 
-void MyCube::Square::set_side(double side)
+void MyGeometry::Square::set_side(double side)
 {
 	this->side = set_size(side);
 }
 
-MyCube::Square::Square(double side, unsigned int x, unsigned int y, unsigned int live_width, MyGeometry::Color color):MyRectangle::Rectangle(side,side,x,y,live_width,color)
+MyGeometry::Square::Square(double side, unsigned int x, unsigned int y, unsigned int live_width, Color color):Rectangle(side,side,x,y,live_width,color)
 {
 	this->set_side(side);
 }
 
-double MyCube::Square::get_area() const
+double MyGeometry::Square::get_area() const
 {
 	return this->side*this->side;
 }
 
-double MyCube::Square::get_perimeter() const
+double MyGeometry::Square::get_perimeter() const
 {
 	return this->side*4;
 }
 
-void MyCube::Square::draw() const
+void MyGeometry::Square::draw() const
 {
 	HWND hwnd = GetConsoleWindow();
 	HDC hdc = GetDC(hwnd);
@@ -47,11 +47,11 @@ void MyCube::Square::draw() const
 	ReleaseDC(hwnd, hdc);
 }
 
-void MyCube::Square::info() const
+void MyGeometry::Square::info() const
 {
 	std::cout << typeid(*this).name() << std::endl;
 	std::cout << "Сторона квадрата " << get_side() << std::endl;	
-	MyGeometry::Shape::info();
+	Shape::info();
 }
 
 

@@ -1,6 +1,6 @@
 #include "Circle.h"
 
-MyCirle::Circle::Circle()
+MyGeometry::Circle::Circle()
 {
 	this->radius = 50 + rand() % (150 - 50 + 1);
 	this->x = 50 + rand() % (150 - 50 + 1);
@@ -9,13 +9,13 @@ MyCirle::Circle::Circle()
 	this->p2.y = this->y + this->radius * 2;
 }
 
-MyCirle::Circle::Circle(double radius, unsigned int x, unsigned int y, unsigned int live_width, MyGeometry::Color color) :MyGeometry::Shape(x, y, live_width, color)
+MyGeometry::Circle::Circle(double radius, unsigned int x, unsigned int y, unsigned int live_width, Color color) :Shape(x, y, live_width, color)
 {
 	set_radius(radius);
 	set_position(x, y);
 }
 
-void MyCirle::Circle::set_position(unsigned int x, unsigned int y)
+void MyGeometry::Circle::set_position(unsigned int x, unsigned int y)
 {
 	set_x(x);
 	set_y(y);
@@ -24,27 +24,27 @@ void MyCirle::Circle::set_position(unsigned int x, unsigned int y)
 	this->p2.y = this->y + this->radius * 2;
 }
 
-void MyCirle::Circle::set_radius(double radius)
+void MyGeometry::Circle::set_radius(double radius)
 {
 	this->radius = set_size(radius);
 }
 
-double MyCirle::Circle::get_radius()const
+double MyGeometry::Circle::get_radius()const
 {
 	return this->radius;
 }
 
-double MyCirle::Circle::get_area() const
+double MyGeometry::Circle::get_area() const
 {
 	return 3.14 * this->radius * this->radius;
 }
 
-double MyCirle::Circle::get_perimeter() const
+double MyGeometry::Circle::get_perimeter() const
 {
 	return 2 * 3.14 * this->radius;
 }
 
-void MyCirle::Circle::draw() const
+void MyGeometry::Circle::draw() const
 {
 	HWND hwnd = GetConsoleWindow();
 	HDC hdc = GetDC(hwnd);
@@ -56,9 +56,9 @@ void MyCirle::Circle::draw() const
 	ReleaseDC(hwnd, hdc);
 }
 
-void MyCirle::Circle::info() const
+void MyGeometry::Circle::info() const
 {
 	std::cout << typeid(*this).name() << std::endl;
 	std::cout << "Радиус круга: " << get_radius() << std::endl;
-	MyGeometry::Shape::info();
+	Shape::info();
 }

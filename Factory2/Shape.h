@@ -1,5 +1,6 @@
 #pragma once
 #include <Windows.h>
+#include <windowsx.h>
 #include <iostream>
 
 namespace MyGeometry
@@ -21,7 +22,7 @@ namespace MyGeometry
 	{
 	protected:
 		static const int MIN_SIZE = 50;
-		static const int MAX_SIZE = 800;
+		static const int MAX_SIZE = 400;
 		static const int MIN_LINE_WIDTH = 1;
 		static const int MAX_LINE_WIDTH = 25;
 		static const int MAX_HORICONTAL_RESOLUTION = 800;

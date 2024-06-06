@@ -3,7 +3,7 @@
 #include <iostream>
 #include <Windows.h>
 
-namespace MyRectangle
+namespace MyGeometry
 {
 	class Rectangle : public MyGeometry::Shape
 	{
@@ -14,7 +14,7 @@ namespace MyRectangle
 		double get_heigth()const;
 		void set_width(double width);
 		void set_heigth(double heigth);
-		Rectangle(double width, double height, unsigned int x, unsigned int y, unsigned int live_width, MyGeometry::Color color) ;
+		Rectangle(double width, double height, unsigned int x, unsigned int y, unsigned int live_width, Color color) ;
 		Rectangle();
 		~Rectangle() { }
 
