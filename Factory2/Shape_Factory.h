@@ -11,6 +11,7 @@ class Shape_Factory
 {
 public:
 	Shape_Factory();
+	Shape_Factory(unsigned int x, unsigned int y, unsigned int live_width = 5, MyGeometry::Color color = MyGeometry::Color::GREY);
 	~Shape_Factory();
 	void info()const;
 private:	

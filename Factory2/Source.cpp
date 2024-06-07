@@ -7,19 +7,7 @@ void main()
 {
 	setlocale(LC_ALL, "");
 	srand(time(NULL));	
-	Shape_Factory a;
+	Shape_Factory a(100,200,8,MyGeometry::Color::YELLOW);
 	a.info();
-	/*MyGeometry::Triangle rect;
-	rect.draw();*/
-
-	/*MyGeometry::Triangle a;
-	MyGeometry::Square square(50,150,200,9,MyGeometry::GREEN);
-	MyGeometry::Circle c(25, 150, 200, 9, MyGeometry::YELLOW);
-	rect.draw();
-	Sleep(500);
-	a.draw();
-	Sleep(500);
-	square.draw();
-	Sleep(500);
-	c.draw();*/
+	
 }

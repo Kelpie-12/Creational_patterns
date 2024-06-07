@@ -38,11 +38,17 @@ void MyGeometry::Shape::set_line_width(unsigned int line_width)
 	this->line_width = line_width;
 }
 
+void MyGeometry::Shape::set_color(MyGeometry::Color color)
+{
+	this->color = color;
+}
+
 MyGeometry::Shape::Shape(unsigned int x, unsigned int y, unsigned int live_width, Color color) :color(color)
 {
 	set_x(x);
 	set_y(y);
 	set_line_width(live_width);
+
 }
 
 MyGeometry::Shape::Shape()
@@ -67,8 +73,9 @@ void MyGeometry::Shape::info() const
 }
 
 void MyGeometry::Shape::draw() const
-{	
+{
 	//SelectObject(hdc, hPen);
+	HBRUSH	hBrush = CreateSolidBrush(this->color);
 	SelectObject(hdc, hBrush);
 	draw_figura();
 	//удаляем 

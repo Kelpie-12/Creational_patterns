@@ -46,7 +46,7 @@ namespace MyGeometry
 		void set_x(unsigned int x);
 		void set_y(unsigned int y);
 		void set_line_width(unsigned int line_width);
-
+		void set_color(MyGeometry::Color color);
 		//constructors
 		Shape(unsigned int x, unsigned int y, unsigned int live_width = 5, Color color = Color::GREY);
 		Shape();
