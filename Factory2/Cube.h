@@ -13,8 +13,7 @@ namespace MyGeometry {
 		Square(double side, unsigned int x, unsigned int y, unsigned int live_width, Color color);
 
 		double get_area()const override;
-		double get_perimeter()const override;
-		
+		double get_perimeter()const override;		
 		void info()const override;
 		void draw_figura()const override;
 	};

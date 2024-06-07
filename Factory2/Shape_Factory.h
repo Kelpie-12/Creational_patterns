@@ -10,10 +10,10 @@
 class Shape_Factory
 {
 public:
-	Shape_Factory();	
+	Shape_Factory();
 	~Shape_Factory();
 	void info()const;
-protected:	
-	MyGeometry::Shape* shape = nullptr;
+private:	
+	MyGeometry::Shape* shape = nullptr;	
 };
 

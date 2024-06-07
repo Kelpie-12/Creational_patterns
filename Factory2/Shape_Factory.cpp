@@ -29,8 +29,7 @@ Shape_Factory::~Shape_Factory()
 
 void Shape_Factory::info() const
 {
-	this->shape->info();
-	//this->shape->draw();
+	this->shape->info();	
 }
 
 

@@ -47,7 +47,7 @@ MyGeometry::Shape::Shape(unsigned int x, unsigned int y, unsigned int live_width
 
 MyGeometry::Shape::Shape()
 {
-	this->color = MyGeometry::RED;
+	this->color = static_cast<MyGeometry::Color>(/*MyGeometry::Color::BLUE+ */ (std::rand() % MyGeometry::Color::BLUE));
 	this->x = 50 + rand() % (150 - 50 + 1);
 	this->y = 50 + rand() % (150 - 50 + 1);
 	this->line_width = rand() % MAX_LINE_WIDTH;
