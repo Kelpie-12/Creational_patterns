@@ -40,6 +40,7 @@ namespace MyGeometry
 		unsigned int get_x()const;
 		unsigned int get_y()const;
 		unsigned int get_line_width()const;
+		MyGeometry::Color get_color()const;
 
 		unsigned int set_size(unsigned int size);
 

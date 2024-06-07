@@ -21,6 +21,42 @@ Shape_Factory::Shape_Factory()
 	}
 }
 
+Shape_Factory::Shape_Factory(MyGeometry::Circle c)
+{
+	this->shape = new MyGeometry::Circle;
+	this->shape->set_x(c.get_x());
+	this->shape->set_y(c.get_y());
+	this->shape->set_line_width(c.get_line_width());
+	this->shape->set_color(c.get_color());
+}
+
+Shape_Factory::Shape_Factory(MyGeometry::Square c)
+{
+	this->shape = new MyGeometry::Circle;
+	this->shape->set_x(c.get_x());
+	this->shape->set_y(c.get_y());
+	this->shape->set_line_width(c.get_line_width());
+	this->shape->set_color(c.get_color());
+}
+
+Shape_Factory::Shape_Factory(MyGeometry::Rectangle c)
+{
+	this->shape = new MyGeometry::Circle;
+	this->shape->set_x(c.get_x());
+	this->shape->set_y(c.get_y());
+	this->shape->set_line_width(c.get_line_width());
+	this->shape->set_color(c.get_color());
+}
+
+Shape_Factory::Shape_Factory(MyGeometry::Triangle c)
+{
+	this->shape = new MyGeometry::Circle;
+	this->shape->set_x(c.get_x());
+	this->shape->set_y(c.get_y());
+	this->shape->set_line_width(c.get_line_width());
+	this->shape->set_color(c.get_color());
+}
+
 Shape_Factory::Shape_Factory(unsigned int x, unsigned int y, unsigned int live_width, MyGeometry::Color color):Shape_Factory()
 {	
 	this->shape->set_x(x);

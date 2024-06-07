@@ -14,6 +14,10 @@ unsigned int MyGeometry::Shape::get_line_width() const
 {
 	return this->line_width;
 }
+MyGeometry::Color MyGeometry::Shape::get_color() const
+{
+	return this->color;
+}
 unsigned int MyGeometry::Shape::set_size(unsigned int size)
 {
 	return size<MIN_SIZE ? MIN_SIZE : size>MAX_SIZE ? MAX_SIZE : size;
