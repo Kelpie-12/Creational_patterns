@@ -50,11 +50,32 @@ MyGeometry::Shape::Shape()
 	this->color = MyGeometry::RED;
 	this->x = 50 + rand() % (150 - 50 + 1);
 	this->y = 50 + rand() % (150 - 50 + 1);
+	this->line_width = rand() % MAX_LINE_WIDTH;
+	this->hwnd = GetConsoleWindow();
+	this->hdc = GetDC(hwnd);
+	//this->hPen = CreatePen(PS_SOLID, this->line_width, this->color);
+	this->hBrush = CreateSolidBrush(this->color);
 }
 
 void MyGeometry::Shape::info() const
 {
 	std::cout << "Площадь фигуры: " << get_area() << std::endl;
 	std::cout << "Периметр фигуры: " << get_perimeter() << std::endl;
+	/*Sleep(500);
+	system("cls");*/
 	draw();
 }
+
+void MyGeometry::Shape::draw() const
+{	
+	//SelectObject(hdc, hPen);
+	SelectObject(hdc, hBrush);
+	draw_figura();
+	//удаляем 
+	DeleteObject(hBrush);
+	ReleaseDC(hwnd, hdc);
+}
+
+
+
+

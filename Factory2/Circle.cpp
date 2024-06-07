@@ -44,21 +44,14 @@ double MyGeometry::Circle::get_perimeter() const
 	return 2 * 3.14 * this->radius;
 }
 
-void MyGeometry::Circle::draw() const
-{
-	HWND hwnd = GetConsoleWindow();
-	HDC hdc = GetDC(hwnd);
-	HBRUSH hBrush = CreateSolidBrush(this->color);
-	SelectObject(hdc, hBrush);
-	Ellipse(hdc, this->x, this->y, this->p2.x, this->p2.y);
-	//удаляем 
-	DeleteObject(hBrush);
-	ReleaseDC(hwnd, hdc);
-}
-
 void MyGeometry::Circle::info() const
 {
 	std::cout << typeid(*this).name() << std::endl;
 	std::cout << "Радиус круга: " << get_radius() << std::endl;
 	Shape::info();
+}
+
+void MyGeometry::Circle::draw_figura() const
+{
+	Ellipse(hdc, this->x, this->y, this->p2.x, this->p2.y);
 }

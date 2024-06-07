@@ -20,10 +20,9 @@ namespace MyGeometry
 
 		//Methods
 		double get_area()const override;
-		double get_perimeter()const override;
-		void draw()const override;
+		double get_perimeter()const override;		
 		void info()const override;
-
+		void draw_figura()const override;
 	};
 }
 

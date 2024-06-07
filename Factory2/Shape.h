@@ -1,7 +1,7 @@
 #pragma once
 #include <Windows.h>
-#include <windowsx.h>
 #include <iostream>
+
 
 namespace MyGeometry
 {
@@ -18,7 +18,7 @@ namespace MyGeometry
 		int x;
 		int y;
 	};
-	class Shape
+	class Shape 
 	{
 	protected:
 		static const int MIN_SIZE = 50;
@@ -32,16 +32,20 @@ namespace MyGeometry
 		unsigned int y;
 		unsigned int line_width;
 		MyGeometry::Color color;
-	public:		
-		unsigned int get_x()const;	
-		unsigned int get_y()const;		
+		HWND hwnd;
+		HDC hdc;
+		//HPEN hPen;
+		HBRUSH hBrush;
+	public:
+		unsigned int get_x()const;
+		unsigned int get_y()const;
 		unsigned int get_line_width()const;
-		
+
 		unsigned int set_size(unsigned int size);
-	
-		void set_x(unsigned int x);	
-		void set_y(unsigned int y);	
-		void set_line_width(unsigned int line_width);		
+
+		void set_x(unsigned int x);
+		void set_y(unsigned int y);
+		void set_line_width(unsigned int line_width);
 
 		//constructors
 		Shape(unsigned int x, unsigned int y, unsigned int live_width = 5, Color color = Color::GREY);
@@ -52,7 +56,8 @@ namespace MyGeometry
 		virtual void info()const;
 		virtual double get_area()const = 0;
 		virtual double get_perimeter()const = 0;
-		virtual void draw()const = 0;
+		void draw()const;
+		virtual void draw_figura()const = 0;
 	};
 
 }

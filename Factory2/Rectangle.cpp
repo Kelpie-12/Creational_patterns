@@ -45,29 +45,16 @@ double MyGeometry::Rectangle::get_perimeter() const
 	return (this->width + this->heigth) * 2;
 }
 
-void MyGeometry::Rectangle::draw() const
-{
-	HWND hwnd = GetConsoleWindow();
-	HDC hdc = GetDC(hwnd);
-	HPEN hPen = CreatePen(PS_SOLID, this->line_width, this->color);
-	HBRUSH hBrush = CreateSolidBrush(this->color);
-	SelectObject(hdc, hPen);
-	SelectObject(hdc, hBrush);
-
-	::Rectangle(hdc, x, y, x + width, y + heigth);
-
-	//удаляем 
-	DeleteObject(hPen);
-	DeleteObject(hBrush);
-	ReleaseDC(hwnd, hdc);
-
-}
-
 void MyGeometry::Rectangle::info() const
 {
 	std::cout << typeid(*this).name() << std::endl;
 	std::cout << "Ширина прямоугольника: " << get_width() << std::endl;
 	std::cout << "Высота прямоугольника: " << get_heigth() << std::endl;
 	Shape::info();
+}
+
+void MyGeometry::Rectangle::draw_figura() const
+{
+	::Rectangle(hdc, x, y, x + width, y + heigth);
 }
 

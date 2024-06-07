@@ -30,28 +30,17 @@ double MyGeometry::Square::get_perimeter() const
 	return this->side*4;
 }
 
-void MyGeometry::Square::draw() const
-{
-	HWND hwnd = GetConsoleWindow();
-	HDC hdc = GetDC(hwnd);
-	HPEN hPen = CreatePen(PS_SOLID, this->line_width, this->color);
-	HBRUSH hBrush = CreateSolidBrush(this->color);
-	SelectObject(hdc, hPen);
-	SelectObject(hdc, hBrush);
-
-	::Rectangle(hdc, x, y, x + side, y + side);
-
-	//удаляем 
-	DeleteObject(hPen);
-	DeleteObject(hBrush);
-	ReleaseDC(hwnd, hdc);
-}
 
 void MyGeometry::Square::info() const
 {
 	std::cout << typeid(*this).name() << std::endl;
 	std::cout << "Сторона квадрата " << get_side() << std::endl;	
 	Shape::info();
+}
+
+void MyGeometry::Square::draw_figura() const
+{
+	::Rectangle(hdc, x, y, x + side, y + side);
 }
 
 

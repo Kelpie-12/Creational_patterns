@@ -16,8 +16,9 @@ namespace MyGeometry {
 
 		double get_area()const override;
 		double get_perimeter()const override;
-		void draw()const override;
+		//void draw()const ;
 		void info()const override;
+		void draw_figura()const override;
 
 	private:
 		double radius;		

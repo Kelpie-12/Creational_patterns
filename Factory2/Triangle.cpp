@@ -12,22 +12,6 @@ double MyGeometry::Triangle::get_perimeter() const
 	return this->get_side_a()+ this->get_side_b() + this->get_side_c();
 }
 
-void MyGeometry::Triangle::draw() const
-{
-	HWND hwnd = GetConsoleWindow();
-	HDC hdc = GetDC(hwnd);
-
-	HBRUSH hBrush = CreateSolidBrush(this->color);
-	HBRUSH hOldBrush = SelectBrush(hdc, hBrush);
-
-	POINT vertices[] = { {this->vertex1.x,this->vertex1.y}, {this->vertex2.x,this->vertex2.y}, {this->vertex3.x,this->vertex3.y} };
-	Polygon(hdc, vertices, sizeof(vertices) / sizeof(vertices[0]));
-
-	SelectBrush(hdc, hOldBrush);
-	DeleteObject(hBrush);
-
-}
-
 void MyGeometry::Triangle::info() const
 {
 	std::cout << typeid(*this).name() << std::endl;
@@ -35,6 +19,12 @@ void MyGeometry::Triangle::info() const
 	std::cout << "Катет В " << this->get_side_b() << std::endl;
 	std::cout << "Катет С " << this->get_side_c() << std::endl;
 	MyGeometry::Shape::info();
+}
+
+void MyGeometry::Triangle::draw_figura() const
+{
+	POINT vertices[] = { {this->vertex1.x,this->vertex1.y}, {this->vertex2.x,this->vertex2.y}, {this->vertex3.x,this->vertex3.y} };
+	Polygon(hdc, vertices, sizeof(vertices) / sizeof(vertices[0]));
 }
 
 double MyGeometry::Triangle::get_side_a() const
