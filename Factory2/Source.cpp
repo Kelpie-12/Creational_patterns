@@ -10,6 +10,6 @@ void main()
 	Shape_Factory a(100, 200, 8, MyGeometry::Color::YELLOW);
 	Shape_Factory d((MyGeometry::Circle()));
 	d.info();
-	a.info();
+	//a.info();
 	
 }
