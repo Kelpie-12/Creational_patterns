@@ -286,7 +286,7 @@ void main()
 #ifdef Solution
 	Sysadmin nice_guy;
 	Office_Computer_Builder computer_for_director;
-	nice_guy.assembly_computer(&computer_for_director);
+	nice_guy.assembly_computer(&computer_for_director); 
 	nice_guy.turn_on_the_computer();
 #endif // Solution
 
