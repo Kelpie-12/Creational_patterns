@@ -21,6 +21,11 @@ Shape_Factory::Shape_Factory()
 	}
 }
 
+Shape_Factory::Shape_Factory(MyGeometry::Shape* a)
+{
+	this->shape = a;
+}
+
 Shape_Factory::Shape_Factory(MyGeometry::Circle c)
 {
 	this->shape = new MyGeometry::Circle;
@@ -28,6 +33,7 @@ Shape_Factory::Shape_Factory(MyGeometry::Circle c)
 	this->shape->set_y(c.get_y());
 	this->shape->set_line_width(c.get_line_width());
 	this->shape->set_color(c.get_color());
+	
 }
 
 Shape_Factory::Shape_Factory(MyGeometry::Square c)

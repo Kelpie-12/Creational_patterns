@@ -82,6 +82,7 @@ void MyGeometry::Shape::draw() const
 	HBRUSH	hBrush = CreateSolidBrush(this->color);
 	SelectObject(hdc, hBrush);
 	draw_figura();
+	
 	//удаляем 
 	DeleteObject(hBrush);
 	ReleaseDC(hwnd, hdc);

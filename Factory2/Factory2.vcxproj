@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Buider_Shape.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Rectangle.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Buider_Shape.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Rectangle.h" />

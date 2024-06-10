@@ -11,6 +11,7 @@ class Shape_Factory
 {
 public:
 	Shape_Factory();
+	Shape_Factory(MyGeometry::Shape* a);
 	Shape_Factory(MyGeometry::Circle c);
 	Shape_Factory(MyGeometry::Square c);
 	Shape_Factory(MyGeometry::Rectangle c);

@@ -53,5 +53,6 @@ void MyGeometry::Circle::info() const
 
 void MyGeometry::Circle::draw_figura() const
 {
+	std::cout << "Draw"<<std::endl;
 	Ellipse(hdc, this->x, this->y, this->p2.x, this->p2.y);
 }
