@@ -46,13 +46,13 @@ public:
 	{
 		cout << "\nDestructor: \t" << endl;
 	}
-	static Human& get_instance()
+	static Human* get_instance()
 	{
 		if (instance==nullptr)
 		{
 			instance = new Human();
 		}
-		return *instance;
+		return instance;
 	}
 	void print()const
 	{
@@ -73,9 +73,9 @@ public:
 void main()
 {
 	setlocale(LC_ALL, "");
-	Human main = Human::get_instance();
-	main.set_last_name("Vercettyy");
-	main.set_first_name("Tommy");
-	main.set_birth_date(1991,9,6);
-	main.print();
+	Human* main = Human::get_instance();
+	main->set_last_name("Vercettyy");
+	main->set_first_name("Tommy");
+	main->set_birth_date(1991,9,6);
+	main->print();
 }
