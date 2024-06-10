@@ -77,6 +77,11 @@ Shape_Factory::~Shape_Factory()
 	std::cout << "Delete shape" << std::endl;
 }
 
+void Shape_Factory::create_shape(MyGeometry::Shape* a)
+{
+	this->shape = a;
+}
+
 void Shape_Factory::info() const
 {
 	this->shape->info();	

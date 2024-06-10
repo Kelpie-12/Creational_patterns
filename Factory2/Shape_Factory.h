@@ -18,6 +18,7 @@ public:
 	Shape_Factory(MyGeometry::Triangle c);
 	Shape_Factory(unsigned int x, unsigned int y, unsigned int live_width = 5, MyGeometry::Color color = MyGeometry::Color::GREY);
 	~Shape_Factory();
+	void create_shape(MyGeometry::Shape* a);
 	void info()const;
 private:	
 	MyGeometry::Shape* shape = nullptr;	
