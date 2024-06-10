@@ -119,7 +119,9 @@ void main()
 	Player* bike_player = factory.Create_Player(Bike);
 	bike_player->print();
 	cout << delimiter << endl;
+
 	delete bike_player;
 	delete car_player;
+
 	cout << delimiter << endl;
 }
