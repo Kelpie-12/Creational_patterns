@@ -5,11 +5,11 @@
 using namespace std;
 #define delimiter "\n-------------------------\n"
 class Player
-{	
+{
 public:
-	virtual Player* clone()const = 0;
+	virtual unique_ptr<Player> clone()const = 0;
 	//Player(const string name, int id) :name(name), id(id){}
-	virtual ~Player() {} 
+	virtual ~Player() {}
 	virtual void print()const = 0;
 	/*{
 		cout << this<< "\t" << name << "\t" << id << endl;
@@ -34,13 +34,13 @@ public:
 	{
 		cout << this << "\t" << name << "\t" << id << endl;
 	}
-	Player* clone()const override
+	unique_ptr<Player> clone()const override
 	{
-		return new Car_Player(*this);
+		return make_unique< Car_Player>(*this);
 	}
 };
 
-class Bike_Player: public Player
+class Bike_Player : public Player
 {
 public:
 	Bike_Player(const string& name, int id) :name(name), id(id)
@@ -55,9 +55,9 @@ public:
 	{
 		cout << this << "\t" << name << "\t" << id << endl;
 	}
-	Player* clone()const override
+	unique_ptr<Player> clone()const override
 	{
-		return new Bike_Player(*this);
+		return make_unique< Bike_Player> (*this);
 	}
 
 private:
@@ -84,7 +84,7 @@ public:
 		delete players[Car];
 		delete players[Bike];
 	}
-	Player* Create_Player(Player_Type type)
+	unique_ptr<Player> Create_Player(Player_Type type)
 	{
 		return players[type]->clone();
 	}
@@ -109,19 +109,18 @@ void main()
 	bike_player.print();
 #endif // Problem
 
-	Player_Factory factory;	
+	Player_Factory factory;
 	cout << delimiter << endl;
 
-	Player* car_player = factory.Create_Player(Car);
+	unique_ptr<Player> car_player = factory.Create_Player(Car);
 	car_player->print();
 	cout << delimiter << endl;
 
-	Player* bike_player = factory.Create_Player(Bike);
+	unique_ptr<Player> bike_player = factory.Create_Player(Bike);
 	bike_player->print();
-	cout << delimiter << endl;
-
+	/*cout << delimiter << endl;
 	delete bike_player;
-	delete car_player;
+	delete car_player;*/
 
 	cout << delimiter << endl;
 }
