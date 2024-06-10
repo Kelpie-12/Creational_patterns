@@ -57,7 +57,7 @@ public:
 	}
 	unique_ptr<Player> clone()const override
 	{
-		return make_unique< Bike_Player> (*this);
+		return make_unique< Bike_Player>(*this);
 	}
 
 private:
@@ -72,27 +72,39 @@ enum Player_Type
 };
 class Player_Factory
 {
-	std::map<Player_Type, Player*> players;
-public:
-	Player_Factory()
-	{
-		players[Car] = new Car_Player("BMW", 735);
-		players[Bike] = new Bike_Player("H&D", 200);
-	}
-	~Player_Factory()
+	static std::map<Player_Type, unique_ptr<Player>> players;
+
+
+	static void Init();
+	/*{
+		if (players.find(Car) == players.end())
+			players[Car] = make_unique< Car_Player>(Car_Player("BMW", 735));
+		if (players.find(Bike) == players.end())
+			players[Bike] = make_unique< Bike_Player>(Bike_Player("H&D", 200));
+	}*/
+	/*~Player_Factory()
 	{
 		delete players[Car];
 		delete players[Bike];
-	}
-	unique_ptr<Player> Create_Player(Player_Type type)
+	}*/
+public:
+	static unique_ptr<Player> Create_Player(Player_Type type)
 	{
+		Init();
 		return players[type]->clone();
 	}
 };
-
-
+void Player_Factory::Init()
+{
+	if (players.find(Car) == players.end())
+		players[Car] = make_unique< Car_Player>(Car_Player("BMW", 735));
+	if (players.find(Bike) == players.end())
+		players[Bike] = make_unique< Bike_Player>(Bike_Player("H&D", 200));
+}
 //#define Problem
 #define Solution
+//#define Solution1
+
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -109,6 +121,7 @@ void main()
 	bike_player.print();
 #endif // Problem
 
+#ifdef Solution1
 	Player_Factory factory;
 	cout << delimiter << endl;
 
@@ -122,5 +135,13 @@ void main()
 	delete bike_player;
 	delete car_player;*/
 
+	cout << delimiter << endl;
+#endif //Solution1
+
+	std::unique_ptr<Player> car_player = Player_Factory::Create_Player(Car);
+	car_player->print();
+	cout << delimiter << endl;
+	std::unique_ptr<Player> bike_player = Player_Factory::Create_Player(Bike);
+	bike_player->print();
 	cout << delimiter << endl;
 }
