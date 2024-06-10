@@ -15,7 +15,7 @@ public:
 	Shape_Factory(MyGeometry::Square c);
 	Shape_Factory(MyGeometry::Rectangle c);
 	Shape_Factory(MyGeometry::Triangle c);
-	Shape_Factory(unsigned int x, unsigned int y, unsigned int live_width = 5, MyGeometry::Color color = MyGeometry::Color::GREY);
+	Shape_Factory(unsigned int x, unsigned int y, unsigned int live_width = 5, Colors color = Colors{});
 	~Shape_Factory();
 	void info()const;
 private:	

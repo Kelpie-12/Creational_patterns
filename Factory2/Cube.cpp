@@ -15,7 +15,7 @@ void MyGeometry::Square::set_side(double side)
 	this->side = set_size(side);
 }
 
-MyGeometry::Square::Square(double side, unsigned int x, unsigned int y, unsigned int live_width, Color color):Rectangle(side,side,x,y,live_width,color)
+MyGeometry::Square::Square(double side, unsigned int x, unsigned int y, unsigned int live_width, Colors color):Rectangle(side,side,x,y,live_width,color)
 {
 	this->set_side(side);
 }

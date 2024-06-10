@@ -17,7 +17,7 @@ namespace MyGeometry
 		void set_vertex_3(int x, int y);
 
 		Triangle();
-		Triangle(Vector2 v1, Vector2 v2, Vector2 v3,int line_width,Color color);
+		Triangle(Vector2 v1, Vector2 v2, Vector2 v3,int line_width,Colors color);
 
 		double get_area()const override;
 		double get_perimeter()const override;

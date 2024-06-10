@@ -14,7 +14,7 @@ namespace MyGeometry
 		double get_heigth()const;
 		void set_width(double width);
 		void set_heigth(double heigth);
-		Rectangle(double width, double height, unsigned int x, unsigned int y, unsigned int live_width, Color color) ;
+		Rectangle(double width, double height, unsigned int x, unsigned int y, unsigned int live_width, Colors color) ;
 		Rectangle();
 		~Rectangle() { }
 

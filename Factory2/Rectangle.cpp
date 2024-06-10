@@ -22,7 +22,7 @@ void MyGeometry::Rectangle::set_heigth(double heigth)
 	this->heigth = set_size(heigth);
 }
 
-MyGeometry::Rectangle::Rectangle(double width, double height, unsigned int x, unsigned int y, unsigned int live_width, Color color)
+MyGeometry::Rectangle::Rectangle(double width, double height, unsigned int x, unsigned int y, unsigned int live_width, Colors color)
 	:Shape(x,y,live_width,color)
 {
 	set_heigth(height);

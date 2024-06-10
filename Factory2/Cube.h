@@ -10,7 +10,7 @@ namespace MyGeometry {
 		Square();
 		double get_side()const;
 		void set_side(double side);	
-		Square(double side, unsigned int x, unsigned int y, unsigned int live_width, Color color);
+		Square(double side, unsigned int x, unsigned int y, unsigned int live_width, Colors color);
 
 		double get_area()const override;
 		double get_perimeter()const override;		

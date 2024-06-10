@@ -1,18 +1,19 @@
 #pragma once
 #include <Windows.h>
 #include <iostream>
+#include "Colors.h"
 
 
 namespace MyGeometry
 {
-	enum Color
+	/*enum Color
 	{
 		RED = 0x000000FF,
 		GREEN = 0x0000FF00,
 		BLUE = 0x00FF0000,
 		GREY = 0x00AAAAAA,
 		YELLOW = 0x0000FFFF
-	};
+	};*/
 	struct Vector2
 	{
 		int x;
@@ -31,7 +32,8 @@ namespace MyGeometry
 		unsigned int x;
 		unsigned int y;
 		unsigned int line_width;
-		MyGeometry::Color color;
+		Colors color;
+		//MyGeometry::Color color;
 		HWND hwnd;
 		HDC hdc;
 		//HPEN hPen;
@@ -40,16 +42,16 @@ namespace MyGeometry
 		unsigned int get_x()const;
 		unsigned int get_y()const;
 		unsigned int get_line_width()const;
-		MyGeometry::Color get_color()const;
+		Colors get_color()const;
 
 		unsigned int set_size(unsigned int size);
 
 		void set_x(unsigned int x);
 		void set_y(unsigned int y);
 		void set_line_width(unsigned int line_width);
-		void set_color(MyGeometry::Color color);
+		void set_color(Colors color);
 		//constructors
-		Shape(unsigned int x, unsigned int y, unsigned int live_width = 5, Color color = Color::GREY);
+		Shape(unsigned int x, unsigned int y, unsigned int live_width = 5, Colors color=Colors{});
 		Shape();
 		virtual ~Shape() { }
 

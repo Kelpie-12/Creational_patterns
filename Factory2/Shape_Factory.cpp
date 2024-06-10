@@ -57,7 +57,7 @@ Shape_Factory::Shape_Factory(MyGeometry::Triangle c)
 	this->shape->set_color(c.get_color());
 }
 
-Shape_Factory::Shape_Factory(unsigned int x, unsigned int y, unsigned int live_width, MyGeometry::Color color):Shape_Factory()
+Shape_Factory::Shape_Factory(unsigned int x, unsigned int y, unsigned int live_width, Colors color):Shape_Factory()
 {	
 	this->shape->set_x(x);
 	this->shape->set_y(y);

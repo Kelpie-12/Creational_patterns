@@ -8,7 +8,7 @@ namespace MyGeometry {
 	{
 	public:
 		Circle();
-		Circle(double radius, unsigned int x, unsigned int y, unsigned int live_width, Color color);
+		Circle(double radius, unsigned int x, unsigned int y, unsigned int live_width, Colors color);
 
 		void set_position(unsigned int x, unsigned int y);
 		void set_radius(double radius);

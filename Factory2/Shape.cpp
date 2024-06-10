@@ -14,7 +14,7 @@ unsigned int MyGeometry::Shape::get_line_width() const
 {
 	return this->line_width;
 }
-MyGeometry::Color MyGeometry::Shape::get_color() const
+Colors MyGeometry::Shape::get_color() const
 {
 	return this->color;
 }
@@ -42,12 +42,12 @@ void MyGeometry::Shape::set_line_width(unsigned int line_width)
 	this->line_width = line_width;
 }
 
-void MyGeometry::Shape::set_color(MyGeometry::Color color)
+void MyGeometry::Shape::set_color(Colors color)
 {
 	this->color = color;
 }
 
-MyGeometry::Shape::Shape(unsigned int x, unsigned int y, unsigned int live_width, Color color) :color(color)
+MyGeometry::Shape::Shape(unsigned int x, unsigned int y, unsigned int live_width , Colors color ) :color(color)
 {
 	set_x(x);
 	set_y(y);
@@ -57,14 +57,15 @@ MyGeometry::Shape::Shape(unsigned int x, unsigned int y, unsigned int live_width
 
 MyGeometry::Shape::Shape()
 {
-	this->color = static_cast<MyGeometry::Color>(/*MyGeometry::Color::BLUE+ */ (std::rand() % MyGeometry::Color::BLUE));
+	this->color = Colors{};
+	// this->color = static_cast<MyGeometry::Color>(/*MyGeometry::Color::BLUE+ */ (std::rand() % MyGeometry::Color::BLUE));
 	this->x = 50 + rand() % (150 - 50 + 1);
 	this->y = 50 + rand() % (150 - 50 + 1);
 	this->line_width = rand() % MAX_LINE_WIDTH;
 	this->hwnd = GetConsoleWindow();
 	this->hdc = GetDC(hwnd);
 	//this->hPen = CreatePen(PS_SOLID, this->line_width, this->color);
-	this->hBrush = CreateSolidBrush(this->color);
+	this->hBrush = CreateSolidBrush(this->color.get_colors());
 }
 
 void MyGeometry::Shape::info() const
@@ -78,8 +79,8 @@ void MyGeometry::Shape::info() const
 
 void MyGeometry::Shape::draw() const
 {
-	//SelectObject(hdc, hPen);
-	HBRUSH	hBrush = CreateSolidBrush(this->color);
+	//SelectObject(hdc, hPen);	
+	HBRUSH hBrush = CreateSolidBrush(this->color.get_colors());
 	SelectObject(hdc, hBrush);
 	draw_figura();
 	//удаляем 

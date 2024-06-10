@@ -77,7 +77,7 @@ MyGeometry::Triangle::Triangle()
 	this->vertex3.y = 300 + rand() % (450 - 300 + 1);
 }
 
-MyGeometry::Triangle::Triangle(Vector2 v1, Vector2 v2, Vector2 v3, int line_width, Color color) :Shape(v1.x, v1.y, line_width, color)
+MyGeometry::Triangle::Triangle(Vector2 v1, Vector2 v2, Vector2 v3, int line_width, Colors color) :Shape(v1.x, v1.y, line_width, color)
 {
 	this->vertex1 = v1;
 	this->vertex2 = v2;
