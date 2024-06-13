@@ -6,8 +6,8 @@ using namespace std;
 #define delimiter "\n-------------------------\n"
 class Player
 {
-public:	
-	virtual unique_ptr<Player> clone()const = 0;	
+public:
+	virtual unique_ptr<Player> clone()const = 0;
 	virtual ~Player() {}
 	virtual void print()const = 0;
 };
@@ -60,14 +60,41 @@ private:
 	int id;
 };
 
+class Test_Player :public Player
+{
+public:
+	Test_Player(const string& name, int id) :name(name), id(id)
+	{
+		std::cout << "Test_constractor\t" << this << endl;
+	}
+	~Test_Player()override
+	{
+		std::cout << "Test_destractor\t" << this << endl;
+	}
+	void print()const override
+	{
+		std::cout << this << "\t" << name << "\t" << id << endl;
+	}
+	unique_ptr<Player> clone()const override
+	{
+		return make_unique< Test_Player>(*this);
+	}
+
+private:
+	string name;
+	int id;
+};
+
 enum Player_Type
 {
 	Car,
-	Bike
+	Bike,
+	Test
+
 };
 class Player_Factory
-{	
-	static map<Player_Type, unique_ptr<Player>> players;	
+{
+	static map<Player_Type, unique_ptr<Player>> players;
 	using Map = std::map<Player_Type, unique_ptr<Player>>;
 	static Map GenMap();
 public:
@@ -118,11 +145,14 @@ void main()
 	std::unique_ptr<Player> bike_player = Player_Factory::Create_Player(Bike);
 	bike_player->print();
 	std::cout << delimiter << endl;
+	auto test_player = Player_Factory::Create_Player(Test);
+	test_player->print();
+	std::cout << delimiter << endl;
 
 }
 
 
-map<Player_Type, unique_ptr<Player>> Player_Factory::players= Player_Factory::GenMap();
+map<Player_Type, unique_ptr<Player>> Player_Factory::players = Player_Factory::GenMap();
 
 unique_ptr<Player> Player_Factory::Create_Player(Player_Type type)
 {
@@ -134,5 +164,6 @@ Player_Factory::Map Player_Factory::GenMap()
 	Map m;
 	m.emplace(Car, std::unique_ptr<Car_Player>(new Car_Player{ "BMW", 735 }));
 	m.emplace(Bike, std::unique_ptr< Bike_Player>(new Bike_Player("H&D", 200)));
+	m.emplace(Test, std::unique_ptr< Test_Player>(new Test_Player("Test", 1000)));
 	return m;
 }
