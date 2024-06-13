@@ -6,15 +6,10 @@ using namespace std;
 #define delimiter "\n-------------------------\n"
 class Player
 {
-public:
-	virtual unique_ptr<Player> clone()const = 0;
-	//Player(const string name, int id) :name(name), id(id){}
+public:	
+	virtual unique_ptr<Player> clone()const = 0;	
 	virtual ~Player() {}
 	virtual void print()const = 0;
-	/*{
-		cout << this<< "\t" << name << "\t" << id << endl;
-	}*/
-
 };
 
 class Car_Player :public Player
@@ -24,15 +19,15 @@ class Car_Player :public Player
 public:
 	Car_Player(const string& name, int id) :name(name), id(id)
 	{
-		cout << "Car_constractor\t" << this << endl;
+		std::cout << "Car_constractor\t\t" << this << endl;
 	}
-	~Car_Player()
+	~Car_Player()override
 	{
-		cout << "Car_destractor\t" << this << endl;
+		std::cout << "Car_destractor\t" << this << endl;
 	}
 	void print()const override
 	{
-		cout << this << "\t" << name << "\t" << id << endl;
+		std::cout << this << "\t" << name << "\t" << id << endl;
 	}
 	unique_ptr<Player> clone()const override
 	{
@@ -45,15 +40,15 @@ class Bike_Player : public Player
 public:
 	Bike_Player(const string& name, int id) :name(name), id(id)
 	{
-		cout << "Bike_constractor\t" << this << endl;
+		std::cout << "Bike_constractor\t" << this << endl;
 	}
-	~Bike_Player()
+	~Bike_Player()override
 	{
-		cout << "Bike_destractor\t" << this << endl;
+		std::cout << "Bike_destractor\t" << this << endl;
 	}
 	void print()const override
 	{
-		cout << this << "\t" << name << "\t" << id << endl;
+		std::cout << this << "\t" << name << "\t" << id << endl;
 	}
 	unique_ptr<Player> clone()const override
 	{
@@ -71,39 +66,17 @@ enum Player_Type
 	Bike
 };
 class Player_Factory
-{
-	static std::map<Player_Type, unique_ptr<Player>> players;
-
-
-	static void Init();
-	/*{
-		if (players.find(Car) == players.end())
-			players[Car] = make_unique< Car_Player>(Car_Player("BMW", 735));
-		if (players.find(Bike) == players.end())
-			players[Bike] = make_unique< Bike_Player>(Bike_Player("H&D", 200));
-	}*/
-	/*~Player_Factory()
-	{
-		delete players[Car];
-		delete players[Bike];
-	}*/
+{	
+	static map<Player_Type, unique_ptr<Player>> players;	
+	using Map = std::map<Player_Type, unique_ptr<Player>>;
+	static Map GenMap();
 public:
-	static unique_ptr<Player> Create_Player(Player_Type type)
-	{
-		Init();
-		return players[type]->clone();
-	}
+	static unique_ptr<Player> Create_Player(Player_Type type);
 };
-void Player_Factory::Init()
-{
-	if (players.find(Car) == players.end())
-		players[Car] = make_unique< Car_Player>(Car_Player("BMW", 735));
-	if (players.find(Bike) == players.end())
-		players[Bike] = make_unique< Bike_Player>(Bike_Player("H&D", 200));
-}
+
 //#define Problem
-#define Solution
-//#define Solution1
+//#define Solution
+//#define Solution1 
 
 void main()
 {
@@ -138,10 +111,28 @@ void main()
 	cout << delimiter << endl;
 #endif //Solution1
 
-	std::unique_ptr<Player> car_player = Player_Factory::Create_Player(Car);
+	std::cout << delimiter << endl;
+	std::unique_ptr<Player>  car_player = Player_Factory::Create_Player(Car);
 	car_player->print();
-	cout << delimiter << endl;
+	std::cout << delimiter << endl;
 	std::unique_ptr<Player> bike_player = Player_Factory::Create_Player(Bike);
 	bike_player->print();
-	cout << delimiter << endl;
+	std::cout << delimiter << endl;
+
+}
+
+
+map<Player_Type, unique_ptr<Player>> Player_Factory::players= Player_Factory::GenMap();
+
+unique_ptr<Player> Player_Factory::Create_Player(Player_Type type)
+{
+	return players[type]->clone();
+}
+
+Player_Factory::Map Player_Factory::GenMap()
+{
+	Map m;
+	m.emplace(Car, std::unique_ptr<Car_Player>(new Car_Player{ "BMW", 735 }));
+	m.emplace(Bike, std::unique_ptr< Bike_Player>(new Bike_Player("H&D", 200)));
+	return m;
 }
